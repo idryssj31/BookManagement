@@ -32,6 +32,14 @@ repositories {
     mavenCentral()
 }
 
+kotlin {
+    jvmToolchain(21) // Configure la version de la JVM
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict")
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+    }
+}
+
 testing {
     suites {
         val testIntegration by registering(JvmTestSuite::class) {
@@ -84,9 +92,9 @@ dependencies {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs += "-Xjsr305=strict"
-        jvmTarget = "21"
+    compilerOptions {
+        freeCompilerArgs.add("-Xjsr305=strict")
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
     }
 }
 
@@ -118,4 +126,6 @@ pitest {
     mainSourceSets.addAll(sourceSets["main"])
     outputFormats.addAll("XML", "HTML")
     excludedClasses.add("**BookManagementApplication")
+
+
 }
