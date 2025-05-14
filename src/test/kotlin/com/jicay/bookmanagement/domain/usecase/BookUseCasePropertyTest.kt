@@ -19,6 +19,10 @@ class InMemoryBookPort : BookPort {
         books.add(book)
     }
 
+    override fun deleteAllBooks() {
+        books.clear()
+    }
+
     fun clear() {
         books.clear()
     }

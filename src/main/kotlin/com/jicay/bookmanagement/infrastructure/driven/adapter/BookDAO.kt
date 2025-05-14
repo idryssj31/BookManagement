@@ -25,4 +25,8 @@ class BookDAO(private val namedParameterJdbcTemplate: NamedParameterJdbcTemplate
                 "author" to book.author
             ))
     }
+
+    override fun deleteAllBooks() {
+        namedParameterJdbcTemplate.update("DELETE FROM BOOK", MapSqlParameterSource())
+    }
 }

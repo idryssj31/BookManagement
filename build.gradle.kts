@@ -4,10 +4,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     java
     id("org.springframework.boot") version "3.1.3"
-    id("io.spring.dependency-management") version "1.1.3"
+    id("io.spring.dependency-management") version "1.1.4"
     id("jacoco")
     kotlin("jvm") version "2.0.21"
-    kotlin("plugin.spring") version "1.8.22"
+    kotlin("plugin.spring") version "2.0.21"
     id("info.solidsoft.pitest") version "1.15.0"
 }
 
@@ -36,7 +36,7 @@ kotlin {
     jvmToolchain(21) // Configure la version de la JVM
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
     }
 }
 
