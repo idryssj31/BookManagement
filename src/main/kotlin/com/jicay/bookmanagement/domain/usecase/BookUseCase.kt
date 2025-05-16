@@ -8,7 +8,7 @@ class BookUseCase(
 ) {
     fun getAllBooks(): List<Book> {
         return bookPort.getAllBooks().sortedBy {
-            it.name.lowercase()
+            it.title.lowercase()
         }
     }
 
@@ -19,4 +19,6 @@ class BookUseCase(
     fun deleteAllBooks() {
         bookPort.deleteAllBooks()
     }
+
+    fun reserveBook(title: String): Boolean = bookPort.reserveBook(title)
 }

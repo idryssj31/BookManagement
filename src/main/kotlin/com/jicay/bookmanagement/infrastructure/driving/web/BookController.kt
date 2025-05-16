@@ -37,4 +37,10 @@ class BookController(
     fun deleteAllBooks() {
         bookUseCase.deleteAllBooks()
     }
+
+    @CrossOrigin
+    @PostMapping("/reserve")
+    fun reserveBook(@RequestBody bookDTO: BookDTO): Boolean {
+        return bookUseCase.reserveBook(bookDTO.title)
+    }
 }

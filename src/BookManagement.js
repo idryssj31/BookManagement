@@ -22,8 +22,9 @@ function BookManagement() {
     e.preventDefault();
     if (!newBook.title || !newBook.author) return;
     await axios.post("http://localhost:8081/api/books", {
-      name: newBook.title,
+      title: newBook.title,
       author: newBook.author,
+        reserved: false
     });
     setNewBook({ title: "", author: "" });
     fetchBooks();
@@ -56,7 +57,7 @@ function BookManagement() {
       <ul>
         {books.map((book, idx) => (
           <li key={idx}>
-            {book.name} — {book.author}
+            {book.title} — {book.author} {book.reserved ? "(Reserved)" : ""}
           </li>
         ))}
       </ul>

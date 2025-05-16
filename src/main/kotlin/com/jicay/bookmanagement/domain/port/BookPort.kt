@@ -6,4 +6,5 @@ interface BookPort {
     fun getAllBooks(): List<Book>
     fun createBook(book: Book)
     fun deleteAllBooks()
+    fun reserveBook(title: String): Boolean
 }

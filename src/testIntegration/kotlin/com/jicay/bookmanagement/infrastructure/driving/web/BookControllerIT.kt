@@ -37,7 +37,7 @@ class BookControllerIT(
                         """
                         [
                           {
-                            "name": "A",
+                            "title": "A",
                             "author": "B"
                           }
                         ]
@@ -54,7 +54,7 @@ class BookControllerIT(
             // language=json
             content = """
                 {
-                  "name": "Les misérables",
+                  "title": "Les misérables",
                   "author": "Victor Hugo"
                 }
             """.trimIndent()
@@ -65,7 +65,7 @@ class BookControllerIT(
         }
 
         val expected = Book(
-            name = "Les misérables",
+            title = "Les misérables",
             author = "Victor Hugo"
         )
 
@@ -79,10 +79,9 @@ class BookControllerIT(
             // language=json
             content = """
                 {
-                  "title": "Les misérables",
-                  "author": "Victor Hugo"
+                  "title": "Les misérables"
                 }
-            """.trimIndent()
+            """.trimIndent() // Champ "author" manquant
             contentType = APPLICATION_JSON
             accept = APPLICATION_JSON
         }.andExpect {

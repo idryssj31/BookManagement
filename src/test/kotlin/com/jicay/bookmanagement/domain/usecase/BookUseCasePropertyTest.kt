@@ -23,6 +23,17 @@ class InMemoryBookPort : BookPort {
         books.clear()
     }
 
+    override fun reserveBook(title: String): Boolean {
+        val book = books.find { it.title == title && !it.reserved }
+        return if (book != null) {
+            books.remove(book)
+            books.add(book.copy(reserved = true))
+            true
+        } else {
+            false
+        }
+    }
+
     fun clear() {
         books.clear()
     }
@@ -49,7 +60,7 @@ class BookUseCasePropertyTest : FunSpec({
 
             val res = bookUseCase.getAllBooks()
 
-            res.map { it.name } shouldContainExactly titles.sorted()
+            res.map { it.title } shouldContainExactly titles.sorted()
         }
     }
 })

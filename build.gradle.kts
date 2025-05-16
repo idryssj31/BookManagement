@@ -129,3 +129,7 @@ pitest {
 
 
 }
+
+tasks.withType<org.springframework.boot.gradle.tasks.run.BootRun> {
+    mainClass.set("com.jicay.bookmanagement.BookManagementApplicationKt")
+}
