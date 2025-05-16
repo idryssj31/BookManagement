@@ -38,3 +38,14 @@ npm run copy:all
 ```
 npx cypress open
 ```
+
+## BDD 
+### 2. Utilisation de PgAdmin4
+
+1. Serveur : localhost
+2. Port : 5432
+3. Nom de la base de données : book_management
+4. Nom d'utilisateur : postgres
+5. Mot de passe : ynov
+6. Nom de la table : books
+7. Nom de la colonne : id, title, author, reserved
