@@ -16,9 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "copy:js": "xcopy /E /I /Y build\\static\\js\\* ..\\src\\main\\resources\\static\\js\\",
-    "copy:all": "xcopy /E /I /Y build\\* ..\\src\\main\\resources\\static\\",
-    "watch:copy": "chokidar \"build/index.html\" \"build/static/**/*\" -c \"xcopy /E /I /Y build\\index.html ..\\src\\main\\resources\\static\\ & xcopy /E /I /Y build\\static\\* ..\\src\\main\\resources\\static\\\""
+    "copy:all": "node copy-build-to-static.js"
   },
   "browserslist": {
     "production": [

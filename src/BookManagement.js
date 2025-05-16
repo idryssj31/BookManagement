@@ -35,6 +35,15 @@ function BookManagement() {
     fetchBooks();
   };
 
+  const handleReserve = async (book) => {
+    await axios.post("http://localhost:8081/api/books/reserve", {
+      title: book.title,
+      author: book.author,
+      reserved: book.reserved
+    });
+    fetchBooks();
+  };
+
   return (
     <div>
       <h1>Gestion des livres</h1>
@@ -56,9 +65,12 @@ function BookManagement() {
       <button onClick={handleDeleteAll}>Supprimer tous les livres</button>
       <ul>
         {books.map((book, idx) => (
-          <li key={idx}>
-            {book.title} — {book.author} {book.reserved ? "(Reserved)" : ""}
-          </li>
+            <li key={idx}>
+              {book.title} — {book.author} {book.reserved ? "(Reserved)" : ""}
+              {!book.reserved && (
+                  <button onClick={() => handleReserve(book)}>Réserver</button>
+              )}
+            </li>
         ))}
       </ul>
     </div>
